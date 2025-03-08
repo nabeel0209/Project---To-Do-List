@@ -1,0 +1,48 @@
+The program simply appends the input values into an unordered list. It runs on a simple condition that the user input should not be empty.
+
+addBtn.addEventListener("click", function() {
+    const task = textInput.value.trim(); // To remove unnecessary spaces in words
+    if (task !== "") {
+        if (editIndex === -1) {
+            listArray.push(task);
+        } else {
+            // Update existing task
+            listArray[editIndex] = task;
+            editIndex = -1; // Reset edit mode
+            addBtn.textContent = "Add Task"; // Reset button text
+        }    
+        addItems();  // Function to update the list in html 
+        textInput.value = ""; 
+    }
+    else {
+        alert('Enter a task')
+    }
+});
+  
+
+The code uses an If-else statement inside an event listener to check whether the code execution condition is true. Inside the first if block there's a task which is assigned to be completed only if the first condition is true, and beside that there's another if block nested in the first one. 
+The second if block checks whether the value of editIndex variable is -1 or not. The editIndex variable is a by default assined the value of -1. When the edit button is clicked by user, its value will change to the index number of the clicked Item. The conditional statement will check if its value is -1, means no edit button is clicked, and thus the item would be simply pushed in the array.
+If the value of editIndex is not -1, that'll mean that the edit button is pressed and its value is reassigned. The editBtn function will reassign its value to the clicked item's index. In that case, the item clicked would be sent in the end of Array, the editIndex value would revert to -1 to be used again, and the Add task button is changed to Update Task.
+The function addItems would run as a part of first If block's statement.
+The functon would use the .innerHTML method to clear the list and prevent Item duplication. 
+The .forEach method would go through every single element of array and would provide all of them the delete and edit button as specified in the code. 
+All the buttons would be appended to each item in the last, and every item would be appended to the unordered list in order to be displayed on the UI.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
